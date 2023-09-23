@@ -1,3 +1,7 @@
+/* eslint-disable import/prefer-default-export */
+import './style.css';
+import './ui';
+
 function processData(data) {
   const object = {
     name: data.location.name,
@@ -44,8 +48,8 @@ async function fetchData(location) {
   const rawData = await response.json();
   const data = processData(rawData);
 
-  console.log(data);
+  return data;
   //   console.log(rawData);
 }
 
-fetchData('jundiai');
+export { fetchData };
