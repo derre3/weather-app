@@ -8,31 +8,31 @@ function processData(data) {
     region: data.location.region,
     country: data.location.country,
     localTime: data.location.localtime,
-    humidity: data.current.humidity,
+    humidity: `${data.current.humidity}%`,
     wind_dir: data.current.wind_dir,
     condition: {
       text: data.current.condition.text,
       icon: data.current.condition.icon,
     },
 
-    _metric: {
-      temp: data.current.temp_c,
-      feelsLike: data.current.feelslike_c,
-      gust: data.current.gust_kph,
-      precip: data.current.precip_mm,
-      pressure: data.current.pressure_mb,
-      vis: data.current.vis_km,
-      wind: data.current.wind_kph,
+    metric: {
+      temp: `${data.current.temp_c} ºC`,
+      feelsLike: `${data.current.feelslike_c} ºC`,
+      gust: `${data.current.gust_kph} kp/h`,
+      precip: `${data.current.precip_mm} mm`,
+      pressure: `${data.current.pressure_mb} mb`,
+      vis: `${data.current.vis_km} km`,
+      wind: `${data.current.wind_kph} kp/h`,
     },
 
-    _imperial: {
-      temp: data.current.temp_f,
-      feelsLike: data.current.feelslike_f,
-      gust: data.current.gust_mph,
-      precip: data.current.precip_in,
-      pressure: data.current.pressure_in,
-      vis: data.current.vis_miles,
-      wind: data.current.wind_mph,
+    imperial: {
+      temp: `${data.current.temp_f} ºF`,
+      feelsLike: `${data.current.feelslike_f} ºF`,
+      gust: `${data.current.gust_mph} mp/h`,
+      precip: `${data.current.precip_in} in`,
+      pressure: `${data.current.pressure_in} in`,
+      vis: `${data.current.vis_miles} miles`,
+      wind: `${data.current.wind_mph} mp/h`,
     },
   };
 
