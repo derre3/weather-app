@@ -21,7 +21,7 @@ main {
   grid-template-rows: 1fr 4fr;
   grid-template-columns: 1fr 4fr;
 
-  & div {
+  & > div {
     border: 1px solid black;
   }
   & #info-location {
@@ -36,6 +36,11 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    & img {
+      width: 50px;
+      height: 50px;
+    }
   }
   & #info-grid {
     display: grid;
