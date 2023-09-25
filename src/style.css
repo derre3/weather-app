@@ -47,4 +47,18 @@ main {
     place-items: center;
     grid-template-columns: repeat(3, 1fr);
   }
+  & #info-forecast {
+    display: flex;
+    justify-content: space-around;
+    grid-column: span 2;
+
+    & .forecast-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid black;
+      width: 100%;
+    }
+  }
 }
