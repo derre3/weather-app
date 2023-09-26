@@ -1,3 +1,10 @@
+import tempIcon from './icons/temp.svg';
+import humidityIcon from './icons/humidity.svg';
+import precipIcon from './icons/precip.svg';
+import windIcon from './icons/wind.svg';
+import visIcon from './icons/vis.svg';
+import uvIcon from './icons/uv.svg';
+
 const infoLocation = document.querySelector('#info-location');
 const infoTemp = document.querySelector('#info-temp');
 const infoGrid = document.querySelector('#info-grid');
@@ -43,12 +50,12 @@ function gridModule(data, useUnit) {
     return container;
   };
 
-  const feelsLike = createInfoItem('', 'Feels Like', useUnit.feelsLike);
-  const humidity = createInfoItem('', 'Humidity', data.humidity);
-  const precip = createInfoItem('', 'Precipitation', useUnit.precip);
-  const wind = createInfoItem('', 'Wind Speed', useUnit.wind);
-  const vis = createInfoItem('', 'Visibility', useUnit.vis);
-  const uv = createInfoItem('', 'UV Index', data.uv);
+  const feelsLike = createInfoItem(tempIcon, 'Feels Like', useUnit.feelsLike);
+  const humidity = createInfoItem(humidityIcon, 'Humidity', data.humidity);
+  const precip = createInfoItem(precipIcon, 'Precipitation', useUnit.precip);
+  const wind = createInfoItem(windIcon, 'Wind Speed', useUnit.wind);
+  const vis = createInfoItem(visIcon, 'Visibility', useUnit.vis);
+  const uv = createInfoItem(uvIcon, 'UV Index', data.uv);
 
   infoGrid.append(feelsLike, humidity, precip, wind, vis, uv);
 }
