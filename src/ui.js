@@ -6,6 +6,10 @@ import {
   forecastModule,
 } from './uiModules';
 
+function setDataState(data) {
+  dataState = data;
+}
+
 async function searchLocation() {
   const data = await fetchWeather(searchInput.value);
   updateInfo(data, unit);
@@ -60,20 +64,18 @@ const searchButton = document.querySelector('#search-button');
 const metricButton = document.querySelector('#metric');
 const imperialButton = document.querySelector('#imperial');
 
+let dataState;
 let unit = 0;
+
 searchButton.addEventListener('click', async () => {
   const data = await searchLocation();
-
-  metricButton.addEventListener('click', () => {
-    updateInfo(data, unit);
-  });
-  imperialButton.addEventListener('click', () => {
-    updateInfo(data, unit);
-  });
+  setDataState(data);
 });
 metricButton.addEventListener('click', () => {
   unit = 0;
+  if (dataState) updateInfo(dataState, unit);
 });
 imperialButton.addEventListener('click', () => {
   unit = 1;
+  if (dataState) updateInfo(dataState, unit);
 });
