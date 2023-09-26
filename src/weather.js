@@ -10,6 +10,7 @@ function processData(data) {
         text: forecast.day.condition.text,
         icon: forecast.day.condition.icon,
       },
+      rain: forecast.day.daily_chance_of_rain,
 
       metric: {
         maxtemp: `${forecast.day.maxtemp_c} ºC`,
@@ -30,7 +31,6 @@ function processData(data) {
     country: data.location.country,
     localTime: data.location.localtime,
     humidity: `${data.current.humidity}%`,
-    wind_dir: data.current.wind_dir,
     uv: data.current.uv,
 
     condition: {
@@ -41,9 +41,7 @@ function processData(data) {
     metric: {
       temp: `${data.current.temp_c} ºC`,
       feelsLike: `${data.current.feelslike_c} ºC`,
-      gust: `${data.current.gust_kph} kph`,
       precip: `${data.current.precip_mm} mm`,
-      pressure: `${data.current.pressure_mb} mb`,
       vis: `${data.current.vis_km} km`,
       wind: `${data.current.wind_kph} kph`,
     },
@@ -51,9 +49,7 @@ function processData(data) {
     imperial: {
       temp: `${data.current.temp_f} ºF`,
       feelsLike: `${data.current.feelslike_f} ºF`,
-      gust: `${data.current.gust_mph} mph`,
       precip: `${data.current.precip_in} in`,
-      pressure: `${data.current.pressure_in} in`,
       vis: `${data.current.vis_miles} miles`,
       wind: `${data.current.wind_mph} mph`,
     },
