@@ -45,7 +45,7 @@ main {
   }
   & #info-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
     & .info-item {
       display: grid;
@@ -53,9 +53,11 @@ main {
 
       & div {
         justify-self: start;
+        align-self: end;
       }
 
       & img {
+        align-self: center;
         justify-self: end;
         width: 40px;
         height: 40px;
