@@ -50,12 +50,7 @@ function updateInfo(data, unit) {
   locationModule(data);
   tempModule(data, useUnit);
   gridModule(data, useUnit);
-
-  data.forecast.forEach((day) => {
-    if (unit === 0) useUnit = day.metric;
-    else useUnit = day.imperial;
-    forecastModule(day, useUnit);
-  });
+  forecastModule(data, unit);
 }
 
 const main = document.querySelector('main');

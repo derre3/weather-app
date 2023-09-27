@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import tempIcon from './icons/temp.svg';
 import humidityIcon from './icons/humidity.svg';
 import precipIcon from './icons/precip.svg';
@@ -13,9 +14,10 @@ const infoForecast = document.querySelector('#info-forecast');
 function locationModule(data) {
   const location = document.createElement('p');
   const localTime = document.createElement('p');
+  const date = new Date(data.localTime);
 
   location.textContent = `${data.name}, ${data.country}`;
-  localTime.textContent = `${data.localTime}`;
+  localTime.textContent = format(date, 'cccc, MMMM dd');
 
   infoLocation.append(location, localTime);
 }
@@ -24,12 +26,15 @@ function tempModule(data, useUnit) {
   const conditionIcon = new Image();
   const temp = document.createElement('p');
   const conditionText = document.createElement('p');
+  const hours = document.createElement('p');
+  const date = new Date(data.localTime);
 
+  hours.textContent = format(date, 'HH:mm');
   conditionIcon.src = `${data.condition.icon}`;
   temp.textContent = `${useUnit.temp}`;
   conditionText.textContent = `${data.condition.text}`;
 
-  infoTemp.append(conditionIcon, temp, conditionText);
+  infoTemp.append(hours, conditionIcon, temp, conditionText);
 }
 
 function gridModule(data, useUnit) {
@@ -60,32 +65,45 @@ function gridModule(data, useUnit) {
   infoGrid.append(feelsLike, humidity, precip, wind, vis, uv);
 }
 
-function forecastModule(data, useUnit) {
-  const card = document.createElement('div');
-  const dateElement = document.createElement('p');
-  const imgElement = document.createElement('img');
-  const minTempElement = document.createElement('p');
-  const maxTempElement = document.createElement('p');
-  const conditionElement = document.createElement('p');
-  const rainElement = document.createElement('p');
+function forecastModule(data, unit) {
+  data.forecast.forEach((day) => {
+    let useUnit;
+    if (unit === 0) useUnit = day.metric;
+    else useUnit = day.imperial;
 
-  card.classList.add('forecast-card');
+    const card = document.createElement('div');
+    const dateElement = document.createElement('p');
+    const weekDayElement = document.createElement('p');
+    const imgElement = document.createElement('img');
+    const minTempElement = document.createElement('p');
+    const maxTempElement = document.createElement('p');
+    const conditionElement = document.createElement('p');
+    const rainElement = document.createElement('p');
 
-  dateElement.textContent = data.date;
-  imgElement.src = data.condition.icon;
-  minTempElement.textContent = `${useUnit.mintemp} / ${useUnit.maxtemp}`;
-  conditionElement.textContent = data.condition.text;
-  rainElement.textContent = `Rain chance: ${data.rain}%`;
+    card.classList.add('forecast-card');
 
-  card.append(
-    dateElement,
-    imgElement,
-    minTempElement,
-    maxTempElement,
-    conditionElement,
-    rainElement
-  );
-  infoForecast.append(card);
+    const date = new Date(`${day.date} 00:00`);
+    if (data.forecast.indexOf(day) !== 0)
+      dateElement.textContent = format(date, 'dd/MM');
+    else dateElement.textContent = 'Today';
+
+    weekDayElement.textContent = format(date, 'cccc');
+    imgElement.src = day.condition.icon;
+    minTempElement.textContent = `${useUnit.mintemp} / ${useUnit.maxtemp}`;
+    conditionElement.textContent = day.condition.text;
+    rainElement.textContent = `Rain chance: ${day.rain}%`;
+
+    card.append(
+      dateElement,
+      weekDayElement,
+      imgElement,
+      minTempElement,
+      maxTempElement,
+      conditionElement,
+      rainElement
+    );
+    infoForecast.append(card);
+  });
 }
 
 export { locationModule, tempModule, gridModule, forecastModule };
