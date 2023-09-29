@@ -61,6 +61,7 @@ const imperialButton = document.querySelector('#imperial');
 
 let dataState;
 let unit = 0;
+metricButton.classList.add('active');
 
 searchButton.addEventListener('click', async () => {
   const data = await searchLocation();
@@ -68,9 +69,13 @@ searchButton.addEventListener('click', async () => {
 });
 metricButton.addEventListener('click', () => {
   unit = 0;
+  metricButton.classList.add('active');
+  imperialButton.classList.remove('active');
   if (dataState) updateInfo(dataState, unit);
 });
 imperialButton.addEventListener('click', () => {
   unit = 1;
+  metricButton.classList.remove('active');
+  imperialButton.classList.add('active');
   if (dataState) updateInfo(dataState, unit);
 });
