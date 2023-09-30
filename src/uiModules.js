@@ -106,4 +106,23 @@ function forecastModule(data, unit) {
   });
 }
 
-export { locationModule, tempModule, gridModule, forecastModule };
+function loaderModule() {
+  const add = () => {
+    const searchContainer = document.querySelector('#search-container');
+    const loader = document.createElement('div');
+
+    loader.id = 'loader';
+    loader.textContent = 'loading...';
+
+    searchContainer.append(loader);
+  };
+
+  const remove = () => {
+    const loader = document.querySelector('#loader');
+    loader.remove();
+  };
+
+  return { add, remove };
+}
+
+export { locationModule, tempModule, gridModule, forecastModule, loaderModule };

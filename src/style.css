@@ -111,7 +111,7 @@ header {
 }
 
 main {
-  color: white;
+  color: var(--color-secondary);
   opacity: 0;
   padding: 1rem 15%;
   display: grid;
