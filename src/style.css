@@ -80,6 +80,18 @@ header {
 
   & #search-container {
     display: flex;
+    position: relative;
+
+    & #loader {
+      align-self: center;
+      position: absolute;
+      border-radius: 50%;
+      border-top: 3px solid var(--color-secondary);
+      width: 30px;
+      height: 30px;
+      right: -50px;
+      animation: spin 1.5s linear infinite;
+    }
 
     & button {
       background-color: var(--color-secondary);
@@ -217,5 +229,14 @@ main {
         filter: grayscale(100%);
       }
     }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

@@ -112,7 +112,6 @@ function loaderModule() {
     const loader = document.createElement('div');
 
     loader.id = 'loader';
-    loader.textContent = 'loading...';
 
     searchContainer.append(loader);
   };
