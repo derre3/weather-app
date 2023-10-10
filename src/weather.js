@@ -65,7 +65,7 @@ async function fetchWeather(location) {
   loaderModule().add();
 
   const response = await fetch(
-    `https://api.weatherapi.com/v1/forecast.json?key=c36ab4bfb1c341c285f151048231909&q=${location}&days=5`,
+    `https://api.weatherapi.com/v1/forecast.json?key=c36ab4bfb1c341c285f151048231909&q=${location}&days=3`,
     { mode: 'cors' }
   );
   const rawData = await response.json();
