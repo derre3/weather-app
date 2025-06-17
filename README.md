@@ -38,6 +38,8 @@ Dynamic elements = candidates for visual testing tools
 
 ▶️ [Live Demo](https://derre3.github.io/weather-app/)
 
+---
+
 <a name="pt-br"></a>
 
 🛠️ Habilidades Técnicas Demonstradas
@@ -74,6 +76,8 @@ Regressão Visual:
 Elementos dinâmicos = candidatos a testes com ferramentas visuais
 
 ▶️ [Demo Online](https://derre3.github.io/weather-app/)
+
+---
 
 🔧 Tech Stack | Tecnologias
 JavaScript REST API Async/Await CSS Grid
