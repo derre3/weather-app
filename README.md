@@ -42,18 +42,14 @@ Dynamic elements = candidates for visual testing tools
 
 <a name="pt-br"></a>
 
-🛠️ Habilidades Técnicas Demonstradas
-Consumo de API: Dados do OpenWeatherMap
+## 🛠️ Habilidades Técnicas Demonstradas
+- **Consumo de API**: Dados do OpenWeatherMap
+- **Operações Assíncronas**: Tratamento de respostas
+- **Tratamento de Erros**: Gerenciamento de falhas de rede
+- **Renderização Dinâmica**: Atualizações de UI baseadas em dados
+- **Processamento de Inputs**: Validação de busca por cidades
 
-Operações Assíncronas: Tratamento de respostas
-
-Tratamento de Erros: Gerenciamento de falhas de rede
-
-Renderização Dinâmica: Atualizações de UI baseadas em dados
-
-Processamento de Inputs: Validação de busca por cidades
-
-🎯 Relevância para Automação de QA
+## 🎯 Relevância para Automação de QA
 ```mermaid
 graph LR
     A[Respostas de API] --> B[Mocking/Stubbing]
